@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+
+.place {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+}
+
+label {
+    width: max-content;
+    color: #e17152;
+    font-size: 16px;
+    --order-bottom: 1px solid #e17152;
+    margin: 3px 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+p.desc {
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.star {
+    color: gold;
+}
+
+.username {
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.date {
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

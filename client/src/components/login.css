@@ -1,0 +1,31 @@
+.ctn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginBox {
+    width: 350px;
+    height: 200px;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#logButton {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+    width: 70px;
+    height: 35px;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}

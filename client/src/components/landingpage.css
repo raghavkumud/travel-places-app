@@ -1,0 +1,25 @@
+.mainCtn {
+    position: absolute;
+    height: 400px;
+    width: 350px;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 450px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 15px;
+}
+
+.navbar>h3 {
+    background-color: aquamarine;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+}
