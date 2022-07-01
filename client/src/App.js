@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { MapContainer, Popup, Marker, TileLayer } from "react-leaflet";
 import { Star } from "@material-ui/icons";
-import { useMap, useMapEvent } from "react-leaflet/hooks";
-import * as L from "leaflet";
 import "./app.css";
 import axios from "axios";
 import "leaflet-easybutton";
 import { format } from "timeago.js";
 import CreatePin from "./components/createpin";
 import LandingPage from "./components/landingpage";
+import { blueIcon, greenIcon } from "./components/marker-icons";
+import DoubleClickHandler from "./doubleclickhandler";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const bLocalStorage = window.localStorage;
-  const [userStatus, setUserStatus] = useState(true);
+  const [userStatus, setUserStatus] = useState(false);
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -28,6 +28,11 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    const user = localStorage.getItem("user");
+    if (user) {
+      //setUserStatus(true);
+      setCurrentUser(user);
+    }
   }, []);
   function createStars(x) {
     const starsList = [];
@@ -40,47 +45,6 @@ function App() {
     setCurrentPlaceId(id);
     console.log("It is there");
   };
-  const LeafIcon = L.Icon.extend({
-    options: {},
-  });
-  const greenIcon = new LeafIcon({
-    iconUrl:
-      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
-    shadowUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
-  const blueIcon = new LeafIcon({
-    iconUrl:
-      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
-    shadowUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
-  function MyComponent({ setNewPlace }) {
-    const map = useMap();
-    useMapEvent("dblclick", (e) => {
-      try {
-        console.log("map center:", map.getCenter());
-        console.log(e.latlng);
-        const lat = e.latlng.lat;
-        const long = e.latlng.lng;
-        console.log(lat);
-        console.log(long);
-        console.log(e);
-        setNewPlace(e.latlng);
-      } catch (err) {
-        console.log(err);
-      }
-    });
-    return null;
-  }
   function logOutUser() {
     setUserStatus(false);
     bLocalStorage.removeItem("user");
@@ -92,15 +56,12 @@ function App() {
     <>
       <MapContainer
         ref={mapRef}
-        style={{
-          width: "100vw",
-          height: "95vh",
-        }}
-        center={[51.505, -0.09]}
+        className = "mapContainer"
+        center={[28.6139, 77.209]}
         zoom={13}
         scrollWheelZoom={true}
       >
-        <MyComponent setNewPlace={setNewPlace} />
+        <DoubleClickHandler setNewPlace={setNewPlace} />
         {newPlace && (
           <Marker position={newPlace}>
             <Popup>
@@ -144,17 +105,7 @@ function App() {
       </MapContainer>
       {userStatus && (
         <>
-          <button
-            style={{
-              color: "white",
-              backgroundColor: "black",
-              position: "absolute",
-              bottom: "10px",
-              right: "2px",
-              fontFamily: "Poppins",
-            }}
-            onClick={() => logOutUser()}
-          >
+          <button className = "logOutButton" onClick={() => logOutUser()} >
             LogOut
           </button>
         </>

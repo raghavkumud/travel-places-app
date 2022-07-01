@@ -1,37 +1,73 @@
-.registerBox {
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
+.card{
+    margin-bottom:20px;
+    border:none;
+    background: aliceblue;
     display: flex;
-    align-items: center;
-    flex-direction: column;
     justify-content: center;
-    width: 350px;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    margin-bottom: auto;
-
 }
 
-.registerCtn {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.registerCtn>label {
-    text-align: left;
-    font-weight: 900;
-}
-
-#regButton {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+.box {
+    padding: 40px;
     text-align: center;
-    width: 70px;
-    height: 35px;
-    border: none;
-    background-color: skyblue;
+    transition: 0.25s;
+    background-color: rgba(240, 248, 255, 0.138);
+    width: 400px; 
+}
+
+.box input[type="text"],
+.box input[type="password"],
+.box input[type="email"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: silver;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus ,
+.box input[type="email"]:focus{
+    width: 300px;
+    border-color: #2ecc71
+    
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 4px 30px;
+    outline: none;
+    color: #2ecc71;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71;
     color: white;
-    border-radius: 5px;
-    margin-top: 20px;
+}
+
+.headingError {
+    color: red;
+    font-family: Poppins;
+}
+.headingSuccess {
+    color: green;
+    font-family: Poppins;
 }

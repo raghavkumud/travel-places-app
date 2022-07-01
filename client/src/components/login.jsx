@@ -40,24 +40,13 @@ export default function Login({
     );
   }
   return (
-    <div className="loginBox">
-      <form onSubmit={handleSubmit} className="ctn">
-        <label for="username" className="flabel">
-          Username
-        </label>
-        <input id="username" name="username" ref={nameRef} type="text"></input>
-        <label for="password" className="flabel">
-          Password
-        </label>
-        <input
-          id="password"
-          name="password"
-          ref={passwordRef}
-          type="password"
-        ></input>
-        <input id="logButton" type="submit"></input>
-      </form>
-      {loginFaluire && <LoginErrorMessage />}
-    </div>
+    <div className='card'>
+              <form className="box">
+                <input type="text" placeholder="Username" ref={nameRef}/>
+                <input type="password" placeholder="Password" ref={passwordRef}/>
+                <button type="submit"  onSubmit={() => handleSubmit()}>Submit </button>
+              </form>
+              {loginFaluire && <LoginErrorMessage/>}
+          </div>
   );
 }

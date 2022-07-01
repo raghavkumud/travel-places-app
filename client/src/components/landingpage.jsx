@@ -11,11 +11,10 @@ export default function LandingPage({
   const [logIn, setLogIn] = useState(true);
   return (
     <div className="mainCtn">
-      <Room
-        style={{
-          fontSize: "40px",
-        }}
-      />
+      <div className="title">
+        <Room className="logo" />
+        <h4>Explore tourist destinations around the world</h4>
+      </div>
       <div className="navbar">
         <h3 onClick={() => setLogIn(true)}>LogIn</h3>
         <h3 onClick={() => setLogIn(false)}>Register</h3>
