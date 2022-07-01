@@ -43,7 +43,19 @@
     
 }
 
-.box input[type="submit"] {
+
+
+.headingError {
+    color: red;
+    font-family: Poppins;
+    text-align: center;
+}
+.headingSuccess {
+    color: green;
+    font-family: Poppins;
+    text-align: center;
+}
+.registerButton {
     border: 0;
     background: none;
     display: block;
@@ -57,17 +69,7 @@
     transition: 0.25s;
     cursor: pointer
 }
-
-.box input[type="submit"]:hover {
+.registerButton:hover {
     background: #2ecc71;
     color: white;
-}
-
-.headingError {
-    color: red;
-    font-family: Poppins;
-}
-.headingSuccess {
-    color: green;
-    font-family: Poppins;
 }

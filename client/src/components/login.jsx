@@ -10,6 +10,7 @@ export default function Login({
   const nameRef = useRef();
   const passwordRef = useRef();
   const handleSubmit = async (e) => {
+    console.log("trying to log in ....");
     e.preventDefault();
     const newUser = {
       username: nameRef.current.value,
@@ -21,6 +22,7 @@ export default function Login({
         "api/users/login",
         newUser
       );
+      console.log(res);
       bLocalStorage.setItem("user", res.data.username);
       setUserStatus(true);
     } catch (err) {
@@ -29,24 +31,20 @@ export default function Login({
   };
   function LoginErrorMessage() {
     return (
-      <h3
-        style={{
-          color: "red",
-          fontFamily: "Poppins",
-        }}
+      <h5 className="loginErrorMessage"
       >
         Something went wrong!
-      </h3>
+      </h5>
     );
   }
   return (
     <div className='card'>
-              <form className="box">
-                <input type="text" placeholder="Username" ref={nameRef}/>
-                <input type="password" placeholder="Password" ref={passwordRef}/>
-                <button type="submit"  onSubmit={() => handleSubmit()}>Submit </button>
-              </form>
-              {loginFaluire && <LoginErrorMessage/>}
-          </div>
+      <form onSubmit={(e) => handleSubmit(e)} className="box">
+        <input type="text" autoComplete="off" placeholder="Username" ref={nameRef} />
+        <input type="password" autoComplete="off" placeholder="Password" ref={passwordRef} />
+        <button className="logInButton" type="submit">Login </button>
+      </form>
+      {loginFaluire && <LoginErrorMessage />}
+    </div>
   );
 }

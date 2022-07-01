@@ -26,30 +26,29 @@ export default function Register() {
   };
   function SuccessMessage() {
     return (
-      <h3 className="headingText">
+      <h5 className="headingSuccess">
         Successful, you can login now!
-      </h3>
+      </h5>
     );
   }
   function ErrorMessage() {
     return (
-      <h3 className="headingError">
+      <h5 className="headingError">
         Something went wrong!
-      </h3>
+      </h5>
     );
   }
 
   return (
     <div className="card">
-              <form className="box">
-                <input type="text" placeholder="Username" ref={nameRef}/>
-                <input type="email"  placeholder="Email" ref = {emailRef} />
-                <input type="password" placeholder="Password" ref = {passwordRef}/>
-                <button type="submit" onSubmit={handleRegisterSubmit}/>
-              </form>
-              {success && <SuccessMessage/>}
-              {failure && <ErrorMessage/>}
-            </div>
-
-        );
+      <form onSubmit={(e) => handleRegisterSubmit(e)} className="box">
+        <input type="text" placeholder="Username" ref={nameRef} />
+        <input type="email" placeholder="Email" ref={emailRef} />
+        <input type="password" placeholder="Password" ref={passwordRef} />
+        <button className="registerButton" type="submit">Register</button>
+      </form>
+      {success && <SuccessMessage />}
+      {failure && <ErrorMessage />}
+    </div>
+  );
 }
