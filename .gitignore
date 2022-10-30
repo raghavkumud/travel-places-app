@@ -2,5 +2,6 @@
 /client/node_modules
 /client/build
 .vscode/
-client/.vscode/client/.env
+client/.vscode
+client/.env
 .env
