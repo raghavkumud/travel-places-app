@@ -76,20 +76,20 @@ function App() {
         {pins.map((p) => {
           return (
             <>
+            
               <Marker
                 onClick={() => handleMarkerClick(p._id)}
                 position={[p.lat, p.long]}
                 icon={p.username === currentUser ? greenIcon : blueIcon}
               >
                 <Popup>
-                  <div className="card">
+                  <div className="pinCard">
                     <label>Place</label>
                     <h4 className="place">{p.title}</h4>
                     <label>Review</label>
                     <p className="desc">{p.desc}</p>
                     <label>Rating</label>
                     <div className="stars">{createStars(p.rating)}</div>
-                    <label>Information</label>
                     <span className="username">
                       <i>
                         Created by <b>{p.username}</b>

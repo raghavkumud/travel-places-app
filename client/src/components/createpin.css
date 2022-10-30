@@ -1,20 +1,43 @@
 .pinBox {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 300px;
+    height: 350px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
 }
-
+.pinBox > h2 {
+    color: violet;
+    font-family: Poppins;
+    font-weight: 500;
+}
 #ratingBox {
+    height: 35px;
     width: 100%;
+    border: 1px solid gainsboro;
+
+}
+#inputTitle {
+    height: 35px;
+    border: 1px solid gainsboro;
+}
+#inputDesc {
+    height: 50px;
+    border: 1px solid gainsboro;
+}
+#inputDesc:focus, #inputTitle:focus {
+    outline: none;
+}
+#ratingBox:focus {
+    outline: none;
+    
 }
 
 .pinFormCtn {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     justify-content: center;
 }
 
@@ -29,4 +52,9 @@
     color: white;
     border-radius: 5px;
     margin-top: 20px;
+}
+#labTitle, #labDesc, #labRating {
+    color: blueviolet;
+    font-family: Poppins;
+    font-weight: 400;
 }

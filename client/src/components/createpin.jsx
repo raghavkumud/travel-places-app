@@ -59,13 +59,13 @@ export default function CreatePin({ location, currentUser }) {
 
   return (
     <div className="pinBox">
-      <h2>Create a new Pin</h2>
+      <h2>New Pin</h2>
       <form className="pinFormCtn">
-        <label>Add a Title</label>
-        <input ref={nameRef} type="text"></input>
-        <label>Tell us something about a place</label>
-        <input ref={reviewRef} type="text"></input>
-        <label>Add a rating</label>
+        <label id="labTitle">Title</label>
+        <input id="inputTitle" ref={nameRef} type="text"></input>
+        <label id="labDesc">Description</label>
+        <textarea id="inputDesc" ref={reviewRef} type="text"></textarea>
+        <label id="labRating">Rating</label>
         <input
           ref={ratingRef}
           id="ratingBox"
