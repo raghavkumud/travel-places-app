@@ -12,10 +12,10 @@ const pinRoute = require("./routes/pins");
 const userRoute = require("./routes/users");
 const { rmSync } = require("fs");
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, "/client/build")));
 app.get("*", function (req, res) {
   res.sendFile(
-    path.resolve(__dirname, "./client/build/index.html"),
+    path.resolve(__dirname, "/client/build/index.html"),
     function (err) {
       res.status(500).send(err);
     }
