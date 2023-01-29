@@ -62,9 +62,19 @@ export default function CreatePin({ location, currentUser }) {
       <h2>New Pin</h2>
       <form className="pinFormCtn">
         <label id="labTitle">Title</label>
-        <input id="inputTitle" ref={nameRef} type="text"></input>
+        <input
+          id="inputTitle"
+          autoComplete="off"
+          ref={nameRef}
+          type="text"
+        ></input>
         <label id="labDesc">Description</label>
-        <textarea id="inputDesc" ref={reviewRef} type="text"></textarea>
+        <textarea
+          id="inputDesc"
+          autoComplete="off"
+          ref={reviewRef}
+          type="text"
+        ></textarea>
         <label id="labRating">Rating</label>
         <input
           ref={ratingRef}
@@ -72,6 +82,7 @@ export default function CreatePin({ location, currentUser }) {
           min="0"
           max="5"
           type="number"
+          autoComplete="off"
         ></input>
         <button onClick={handleSubmit} id="pinSubmit">
           Submit

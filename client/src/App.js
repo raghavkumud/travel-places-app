@@ -18,8 +18,8 @@ function App() {
   const [newPlace, setNewPlace] = useState(null);
   const mapRef = useRef();
 
-  useEffect(() => {
-    axios
+  useEffect( () => {
+     axios
       .get("api/pins/")
       .then((res) => {
         console.log(res);
@@ -28,9 +28,10 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    const user = localStorage.getItem("user");
+    const user = window.localStorage.getItem("user");
+
     if (user) {
-      //setUserStatus(true);
+      setUserStatus(true);
       setCurrentUser(user);
     }
   }, []);
@@ -43,7 +44,6 @@ function App() {
   }
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id);
-    console.log("It is there");
   };
   function logOutUser() {
     setUserStatus(false);

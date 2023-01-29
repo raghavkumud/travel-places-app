@@ -10,7 +10,6 @@ export default function Login({
   const nameRef = useRef();
   const passwordRef = useRef();
   const handleSubmit = async (e) => {
-    console.log("trying to log in ....");
     e.preventDefault();
     const newUser = {
       username: nameRef.current.value,
@@ -22,7 +21,6 @@ export default function Login({
         "api/users/login",
         newUser
       );
-      console.log(res);
       bLocalStorage.setItem("user", res.data.username);
       setUserStatus(true);
     } catch (err) {
