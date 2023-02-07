@@ -13,14 +13,6 @@ const userRoute = require("./routes/users");
 const { rmSync } = require("fs");
 
 app.use(express.static(path.join(__dirname, "/client/build")));
-app.get("*", function (req, res) {
-  res.sendFile(
-    path.join(__dirname, "/client/build/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -31,6 +23,14 @@ mongoose
 
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
+app.get("*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "/client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 app.listen(process.env.PORT || 8800, () => {
   console.log("Backend server is running!");
 });

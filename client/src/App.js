@@ -22,7 +22,6 @@ function App() {
      axios
       .get("api/pins/")
       .then((res) => {
-        console.log(res);
         setPins([...res.data]);
       })
       .catch((err) => {
@@ -79,7 +78,7 @@ function App() {
             
               <Marker
                 onClick={() => handleMarkerClick(p._id)}
-                position={[p.lat, p.long]}
+                position={[(isNaN(p.lat) ? 28.6139 : p.lat), (isNaN(p.long) ? 77.209 : p.long)]}
                 icon={p.username === currentUser ? greenIcon : blueIcon}
               >
                 <Popup>
