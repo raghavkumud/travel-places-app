@@ -23,7 +23,7 @@ function App() {
       .get("api/pins/")
       .then((res) => {
         console.log(res);
-        setPins(res.data);
+        setPins([...res.data]);
       })
       .catch((err) => {
         console.log(err);
